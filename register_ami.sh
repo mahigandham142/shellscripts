@@ -9,7 +9,7 @@ do
           echo "Already $each_ami is created"
   else
           echo "$each_ami is creating....."
-           aws ec2 create-image --instance-id $each_ami --name $each_ami --description "An AMI for my server" --tag-specifications ResourceType=image,Tags="[{Key=createdby,Value=mahesh}]"
+           aws ec2 create-image --instance-id $each_ami --name $each_ami-$BUILD_NUMBER --description "An AMI for my server" --tag-specifications ResourceType=image,Tags="[{Key=createdby,Value=mahesh}]"
           if [[ $? -eq 0 ]]
           then
                   echo "Successfully created --$each_ami ami"
